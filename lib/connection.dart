@@ -120,8 +120,35 @@ class _SelectBondedDevicePage extends State<SelectBondedDevicePage> {
           ),
         )
         .toList();
-    return ListView(
-      children: list,
+    return Column(
+      children: [
+        SizedBox(height: 10),
+        Expanded(
+          child: ListView(
+            children: list,
+          ),
+        ),
+        Container(
+          // color: Colors.red,
+          width:double.infinity,
+          height:300,
+          child: Stack(
+            children: [
+              Positioned(
+                bottom:-50,
+                child: Image.asset('assets/images/ground.png'),
+              ),
+              Positioned(
+                child: Image.asset('assets/images/mario_run.png'),
+              ),
+              Positioned(
+                right: 40, 
+                child: Image.asset('assets/images/coin.png'),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }

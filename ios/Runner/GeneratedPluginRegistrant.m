@@ -2,18 +2,13 @@
 //  Generated file. Do not edit.
 //
 
-#import "GeneratedPluginRegistrant.h"
+// clang-format off
 
-#if __has_include(<flutter_bluetooth_serial/FlutterBluetoothSerialPlugin.h>)
-#import <flutter_bluetooth_serial/FlutterBluetoothSerialPlugin.h>
-#else
-@import flutter_bluetooth_serial;
-#endif
+#import "GeneratedPluginRegistrant.h"
 
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
-  [FlutterBluetoothSerialPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterBluetoothSerialPlugin"]];
 }
 
 @end

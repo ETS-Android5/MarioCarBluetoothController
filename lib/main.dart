@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       title: 'Flutter Car Controller',
-      theme: ThemeData.dark(),
       home: FutureBuilder(
         future: FlutterBluetoothSerial.instance.requestEnable(),
         builder: (context, future) {
@@ -47,8 +47,12 @@ class Home extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        backgroundColor:Color(0xffFDDD1C) ,
         centerTitle: true,
-        title: Text('Connection'),
+        title: Text('Connection',style: TextStyle(color: Colors.black,            
+                fontSize: 23,
+                fontWeight: FontWeight.bold 
+        )),
       ),
       body: SelectBondedDevicePage(
         onCahtPage: (device1) {
