@@ -11,9 +11,9 @@ class BluetoothDeviceListEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      leading: Icon(Icons.devices,color:Colors.black),
-      title: Text(device.name ?? "Unknown device"),
-      subtitle: Text(device.address.toString()),
+      leading: Icon(Icons.devices,color:Colors.white),
+      title: Text(device.name ?? "Unknown device",style:TextStyle(color:Colors.white)),
+      subtitle: Text(device.address.toString(),style:TextStyle(color:Colors.white)),
       trailing: GestureDetector(
         child: Container(
           decoration: BoxDecoration(
@@ -24,7 +24,6 @@ class BluetoothDeviceListEntry extends StatelessWidget {
           height: 30,         
           child: Center(child: Text('Connect',style: TextStyle(color: Colors.white),))),
         onTap: onTap,
-        
       ),
     );
   }

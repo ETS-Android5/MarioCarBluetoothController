@@ -88,32 +88,10 @@ class _ChatPage extends State<ChatPage> {
   double _value = 90.0;
   @override
   Widget build(BuildContext context) {
-    final List<Row> list = messages.map((_message) {
-      return Row(
-        children: <Widget>[
-          Container(
-            child: Text(
-                (text) {
-                  return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
-                }(_message.text.trim()),
-                style: TextStyle(color: Colors.white)),
-            padding: EdgeInsets.all(12.0),
-            margin: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
-            width: 222.0,
-            decoration: BoxDecoration(
-                color:
-                    _message.whom == clientID ? Colors.greenAccent : Colors.grey,
-                borderRadius: BorderRadius.circular(7.0)),
-          ),
-        ],
-        mainAxisAlignment: _message.whom == clientID
-            ? MainAxisAlignment.end
-            : MainAxisAlignment.start,
-      );
-    }).toList();
-
     return Scaffold(
+      backgroundColor: Color(0xffFFC804),
       appBar: AppBar(
+          backgroundColor: Color(0xffE60000),
           title: (isConnecting
               ? Text('Connecting chat to ' + widget.server.name + '...')
               : isConnected
@@ -124,62 +102,70 @@ class _ChatPage extends State<ChatPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 100,),
-            ControlButton(
-              sectionOffset: FixedAngles.Zero,
-              externalDiameter: 300,
-              internalDiameter: 120,
-              dividerColor: Colors.greenAccent,
-              elevation: 2,
-              externalColor: Colors.green[500],
-              internalColor: Colors.grey[300],
-              mainAction: () {
-                _sendMessage('3');
-              },
-              sections: [
-                    () => _sendMessage('2'),
-                    () => _sendMessage('1'),
-                    () => _sendMessage('4'),
-                    () => _sendMessage('6'),
-                    () => _sendMessage('5'),
-                    () => _sendMessage('7'),
-              ],
-            ),
-            Flexible(
-              child: ListView(
-                  padding: const EdgeInsets.all(12.0),
-                  controller: listScrollController,
-                  children: list),
-            ),
-            Row(
-              children: <Widget>[
-                Flexible(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 16.0),
-                    child: TextField(
-                      style: const TextStyle(fontSize: 15.0),
-                      controller: textEditingController,
-                      decoration: InputDecoration.collapsed(
-                        hintText: isConnecting
-                            ? 'Wait until connected...'
-                            : isConnected
-                                ? 'Type your message...'
-                                : 'Chat got disconnected',
-                        hintStyle: const TextStyle(color: Colors.grey),
+              Container(
+              child:Stack(
+                children: [
+                  ControlButton(
+                  dividerThickness:6,
+                  sectionOffset: FixedAngles.Zero,
+                  externalDiameter: 300,
+                  internalDiameter: 120,
+                  dividerColor: Colors.white,
+                  elevation: 2,
+                  externalColor: Color(0xff2A63E4),
+                  internalColor: Colors.white,
+                  mainAction: () {
+                    _sendMessage('3');
+                  },
+                  sections: [
+                        () => _sendMessage('2'),
+                        () => _sendMessage('1'),
+                        () => _sendMessage('4'),
+                        () => _sendMessage('6'),
+                        () => _sendMessage('5'),
+                        () => _sendMessage('7'),
+                  ],
+                ),
+                
+                Positioned(
+                  top: 90,
+                  left:85,
+                    child: Container(
+                      width:130,
+                      height: 130,
+                      decoration: BoxDecoration(
+                        color:Colors.red,
+                        borderRadius: BorderRadius.circular(200),
                       ),
-                      enabled: isConnected,
-                    ),
+                      
+                      child: Image.asset('assets/images/logo_mario.png')),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: isConnected
-                          ? () => _sendMessage(textEditingController.text)
-                          : null),
-                ),
-              ],
-            )
+                ]
+              ),
+            ),
+            Container(
+                  padding: const EdgeInsets.symmetric(horizontal:12),
+                  ),
+            // ),
+            Expanded(
+              child: Container(
+                height:200,
+                width: double.infinity,
+                child:Stack(
+                  children:[
+                    
+                  Positioned(
+                    bottom:-3,
+                    child: Image.asset('assets/images/floor.png'),
+                  ),
+                  Positioned(
+                    right:0,
+                    child: Image.asset('assets/images/mario_complete.png'),
+                  ),
+                  ]
+                )
+              ),
+            ), 
           ],
         ),
       ),

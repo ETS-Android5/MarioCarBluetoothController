@@ -54,18 +54,32 @@ class Home extends StatelessWidget {
                 fontWeight: FontWeight.bold 
         )),
       ),
-      body: SelectBondedDevicePage(
-        onCahtPage: (device1) {
-          BluetoothDevice device = device1;
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return ChatPage(server: device);
-              },
-            ),
-          );
-        },
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+
+            colors: <Color>[
+              Color(0xFF09A0FF),
+              Color(0xFFA7D5FA),
+              // Color(0xFF42A5F5),
+            ],
+          ),
+        ),
+        child: SelectBondedDevicePage(
+          onCahtPage: (device1) {
+            BluetoothDevice device = device1;
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ChatPage(server: device);
+                },
+              ),
+            );
+          },
+        ),
       ),
     ));
   }
