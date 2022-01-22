@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # servo_app
 
 A new Flutter application. (only android) The app is capable to connect with arduino through Bluetooth and send commands
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# MarioCarBluetoothController
+This project is a flutter app with bluetooth controller with Mario bros design 
+>>>>>>> 182e52867ffdca2d7369777a5e9b5d5ae748e17c
